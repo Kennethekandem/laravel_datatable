@@ -36,8 +36,16 @@ class TestController extends Controller
     }
 
     public function fetchUsers() {
-        $users = User::all();
-        return response()->json($users, 200);
+
+        try {
+            // $users = User::all();
+            $users = DB::table('users')->get();
+            return response()->json($users, 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+        /* $users = User::all();
+        return response()->json($users, 200); */
     }
 
     public function whereClause() {
@@ -97,6 +105,43 @@ class TestController extends Controller
         $users = DB::table('users')
             ->join('orders', 'users.id', '=', 'orders.user_id')
             ->select('users.name', 'orders.order_date')
+            ->get();
+        return response()->json($users, 200);
+    }
+
+    public function leftJoinClause() {
+
+        $users = DB::table('users')
+            ->leftJoin('orders', 'users.id', '=', 'orders.user_id')
+            ->select('users.email', 'orders.order_date')
+            ->get();
+        return response()->json($users, 200);
+    }
+
+    public function rightJoinClause() {
+        $users = DB::table('users')
+            ->rightJoin('orders', 'users.id', '=', 'orders.user_id')
+            ->select('users.name', 'orders.order_date')
+            ->get();
+        return response()->json($users, 200);
+    }
+
+    public function moreOptions($value = null) {
+
+        $query = DB::table('users')->select("name", "votes");
+        if ($value) {
+            $query->addSelect($value /* can be age 🤷🏾‍♂️ */); 
+        }
+        $result = $query->get();
+        return response()->json($result, 200);
+    }
+
+    // where clause
+
+    public function multipleWhereCause() {
+        $users = DB::table('users')
+            ->where('votes', '>=', 100)
+            ->where('age', '>=', 20)
             ->get();
         return response()->json($users, 200);
     }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,11 @@ Route::get('/groupBy', [TestController::class, 'groupByClause']);
 Route::get('distinctCheck', [TestController::class, 'distinctClause']);
 Route::get('/where', [TestController::class, 'whereClause']);
 Route::get('/inner-join', [TestController::class, 'innerJoinClause']);
+Route::get('/left-join', [TestController::class, 'leftJoinClause']);
+Route::get('/right-join', [TestController::class, 'rightJoinClause']);
+Route::get('/more-options/{value?}', [TestController::class, 'moreOptions']);
+Route::get('multiple-where', [TestController::class, 'multipleWhereCause']);
+
+Route::get('contacts', [ContactController::class, 'getAll']);
 
 Route::post('/register', 'TestController@Register');
