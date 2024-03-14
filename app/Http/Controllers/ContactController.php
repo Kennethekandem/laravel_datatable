@@ -21,6 +21,11 @@ class ContactController extends Controller
         return response()->json(['message' => 'Contact created'], 200);
     }
 
+    public function fetchAll() {
+        $contacts = Contact::all();
+        return view('welcome', ['contacts' => $contacts]);
+    }
+
     public function getAll() {
         $contacts = Contact::all();
         return response()->json(["message" => "All contacts", "contacts" => $contacts], 200);

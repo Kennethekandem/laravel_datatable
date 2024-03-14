@@ -22,7 +22,8 @@
     <body class="antialiased">
 
         <div class="bg-color" style="background: aliceblue">
-            <livewire:contacts />
+            {{-- {{$contacts}} --}}
+            <livewire:contacts :contacts="$contacts" />
         </div>
         {{-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
