@@ -88,8 +88,8 @@ class TestController extends Controller
     public function groupByClause() {
 
         $users = DB::table('users')
-             ->select(DB::raw('count(*) as user_count, age'))
-             ->where('age', '>=', 1)
+             ->select('age', DB::raw('count(*) as total, age'))
+             ->where('age', '>', 1)
              ->groupBy('age')
              ->get();
         return response()->json($users, 200);

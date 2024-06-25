@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('', [ContactController::class, 'fetchAll']);
+// Route::get('', []);
+
+// Route::get('', [ContactController::class, 'fetchAll']);

@@ -3,19 +3,21 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Contact;
 
 class Contacts extends Component
 {
 
-    public $contacts;
+    /* public $contacts;
 
     public function mount($contacts)
     {
         $this->contacts = $contacts;
-    }
+    } */
 
     public function render()
     {
-        return view('livewire.contacts');
+        $c = Contact::all();
+        return view('livewire.contacts', ['contacts' => $c]);
     }
 }

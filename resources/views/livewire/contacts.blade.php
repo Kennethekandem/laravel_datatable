@@ -1,26 +1,24 @@
 <div>
     {{-- <h2>hello</h2> --}}
-    <div class="min-h-screen p-6 h-auto bg-slate-800 flex justify-center items-center bg-color">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-2">Contact List</h2>
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex items
-                    -center">
-                        <input type="text" class="border p-2 w-80" placeholder="Search Contacts" wire:model="search">
-                        <button class="btn btn-blue bg-blue-500 text-white p-2">Search</button>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="flex items
+                        -center">
+                            <input type="text" class="border p-2 w-80" placeholder="Search Contacts" wire:model="search">
+                            <button class="btn btn-primary text-white p-2">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
                     </div>
-                </div>
-                <div class="flex justify-between mb-4">
-                    <button class="btn btn-blue bg-blue-500 text-white p-2">
-                        Filter by 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-  <path fill-rule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h11.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 7.5a.75.75 0 0 1 .75-.75h7.508a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 7.5ZM14 7a.75.75 0 0 1 .75.75v6.59l1.95-2.1a.75.75 0 1 1 1.1 1.02l-3.25 3.5a.75.75 0 0 1-1.1 0l-3.25-3.5a.75.75 0 1 1 1.1-1.02l1.95 2.1V7.75A.75.75 0 0 1 14 7ZM2 11.25a.75.75 0 0 1 .75-.75h4.562a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-</svg>
-
-                        {{-- <i class="fas fa-chevron-down"></i> --}}
-                    </button>
+                    <div class="col-4 d-flex justify-content-end align-content-end">
+                        <button class="btn btn-primary align-self-end" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <i class="fa-solid fa-filter"></i>
+                            Filter By:
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -67,40 +65,6 @@
                             </td>
                         </tr>
                         @endforeach
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                Microsoft Surface Pro
-                            </th>
-                            <td class="px-6 py-4">
-                                White
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop PC
-                            </td>
-                            <td class="px-6 py-4">
-                                $1999
-                            </td>
-                            <td class="px-6 py-4">
-                                $1999
-                            </td>
-                        </tr>
-                        <tr class="bg-white dark:bg-gray-800">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                Magic Mouse 2
-                            </th>
-                            <td class="px-6 py-4">
-                                Black
-                            </td>
-                            <td class="px-6 py-4">
-                                Accessories
-                            </td>
-                            <td class="px-6 py-4">
-                                $99
-                            </td>
-                            <td class="px-6 py-4">
-                                $99
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
         </div>
@@ -108,5 +72,16 @@
         </div>
         
         
+    </div>
+
+    {{-- off-canvas for filtering data --}}
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
     </div>
 </div>
