@@ -41,6 +41,12 @@
                                 Address
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Age
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Votes
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Occupation
                             </th>
                         </tr>
@@ -59,6 +65,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{$contact->address}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$contact->age}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$contact->votes}}
                             </td>
                             <td class="px-6 py-4">
                                 {{$contact->occupation}}

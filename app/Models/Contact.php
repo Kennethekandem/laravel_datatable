@@ -17,6 +17,8 @@ class Contact extends Model
         'email',
         'phone',
         'address',
+        'age',
+        'votes',
         'occupation'
     ];
 
