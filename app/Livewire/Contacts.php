@@ -3,10 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Contact;
 
 class Contacts extends Component
 {
+    use WithPagination;
 
     /* public $contacts;
 
@@ -17,7 +19,7 @@ class Contacts extends Component
 
     public function render()
     {
-        $c = Contact::all();
+        $c = Contact::simplePaginate(10);
         return view('livewire.contacts', ['contacts' => $c]);
     }
 }
