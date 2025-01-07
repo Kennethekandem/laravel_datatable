@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ContactSeeder extends Seeder
@@ -12,6 +11,10 @@ class ContactSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Contact::factory(30)->create();
+        \App\Models\Contact::factory(20)->create()->each(function ($contact) {
+            \App\Models\Votes::factory()->create([
+                'contact_id' => $contact->id
+            ]);
+        });
     }
 }

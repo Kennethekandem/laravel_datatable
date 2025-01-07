@@ -21,8 +21,13 @@ class Contact extends Model
         'occupation'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
+    public function votes()
+    {
+        return $this->hasOne(Votes::class);
+    }
 }

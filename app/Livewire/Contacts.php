@@ -23,7 +23,9 @@ class Contacts extends Component
 
     public function render()
     {
-        $query = DB::table("contacts");
+        $query = DB::table("contacts")
+                    ->leftJoin('votes', 'contacts.id', '=', 'votes.contact_id')
+                    ->select('contacts.*', 'votes.votes');
 
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%')
