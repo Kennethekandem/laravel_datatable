@@ -18,7 +18,6 @@ class Contact extends Model
         'phone',
         'address',
         'age',
-        'votes',
         'occupation'
     ];
 
