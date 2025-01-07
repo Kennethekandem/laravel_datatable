@@ -73,7 +73,8 @@ class Contacts extends Component
             'age_min' => null,
             'age_max' => null,
             'occupation' => null,
-            'min_votes' => null
+            'min_votes' => null,
+            'max_votes' => null
         ];
         $this->resetPage();
     }
