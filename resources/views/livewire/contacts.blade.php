@@ -119,6 +119,10 @@
                 <label class="form-label">Minimum Votes</label>
                 <input type="number" class="form-control" placeholder="Minimum Votes" wire:model="filters.min_votes">
             </div>
+            <div class="mb-4">
+                <label class="form-label">Maximum Votes</label>
+                <input type="number" class="form-control" placeholder="Maximum Votes" wire:model="filters.max_votes">
+            </div>
 
             <div class="d-grid gap-2">
                 <button class="btn btn-primary" wire:click="applyFilters">Apply Filters</button>

@@ -16,7 +16,8 @@ class Contacts extends Component
         'age_min' => null,
         'age_max' => null,
         'occupation' => null,
-        'min_votes' => null
+        'min_votes' => null,
+        'max_votes' => null
     ];
 
     protected $queryString = ['search', 'filters'];
@@ -24,8 +25,8 @@ class Contacts extends Component
     public function render()
     {
         $query = DB::table("contacts")
-                    ->leftJoin('votes', 'contacts.id', '=', 'votes.contact_id')
-                    ->select('contacts.*', 'votes.votes');
+            ->leftJoin('votes', 'contacts.id', '=', 'votes.contact_id')
+            ->select('contacts.*', 'votes.votes');
 
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%')
@@ -47,6 +48,10 @@ class Contacts extends Component
 
         if ($this->filters['min_votes']) {
             $query->where('votes', '>=', $this->filters['min_votes']);
+        }
+
+        if ($this->filters['max_votes']) {
+            $query->where('votes', '<=', $this->filters['max_votes']);
         }
 
         $contacts = $query->simplePaginate(10);
