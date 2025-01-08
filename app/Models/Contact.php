@@ -18,12 +18,16 @@ class Contact extends Model
         'phone',
         'address',
         'age',
-        'votes',
         'occupation'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
+    public function votes()
+    {
+        return $this->hasOne(Votes::class);
+    }
 }
